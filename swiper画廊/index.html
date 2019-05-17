@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>基于swiper的画廊</title>
+<link href="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.css" rel="stylesheet">
+		<style type="text/css">
+			body{
+	background-color: #212121;
+}
+			img{
+				width: 100%;
+			}
+			
+			#gallery {
+				width: 1200px;
+			}
+			
+			#thumbs {
+				width: 1000px;
+				margin-top: 50px;
+			}
+			
+			#thumbs .swiper-slide {
+				opacity: 0.3;
+			}
+		
+			#thumbs .swiper-slide-thumb-active{
+				opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2 style="text-align: center; color: aliceblue"></h2>
+		<div class="swiper-container" id="gallery">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="img/b1.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b2.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b3.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b4.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b5.jpg" alt="轮播图">
+				</div>
+			</div>
+			<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+		</div>
+		<div class="swiper-container swiper-container-thumbs" id="thumbs">
+			<div class="swiper-wrapper" style="transition-duration: 0ms;">
+				<div class="swiper-slide">
+					<img src="img/b1.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b2.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b3.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b4.jpg" alt="轮播图">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/b5.jpg" alt="轮播图">
+				</div>
+			</div>
+			<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+		</div>
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
+		<script language="javascript">
+			var thumbsSwiper = new Swiper('#thumbs', {
+				spaceBetween: 10,
+				slidesPerView: 5,
+				watchSlidesVisibility: true, //防止不可点击
+			})
+			var gallerySwiper = new Swiper('#gallery', {
+				effect : 'coverflow',
+				spaceBetween: 10, //缩略图间距
+				slidesPerView: 3,
+				centeredSlides: true,
+			    initialSlide :2,
+			    loop: true,
+			    autoplay: true,
+				thumbs: {
+					swiper: thumbsSwiper,
+				}
+			})
+		</script>
+	</body>
+
+</html>
